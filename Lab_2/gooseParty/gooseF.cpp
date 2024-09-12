@@ -4,8 +4,8 @@
 // \f is a curse on all who use it
 int main() {
   std::cout << "     p<\n";
-  std::cout << "\"___/\b";
-  std::cout << " \\=/\f";
-  std::cout << "  \\_\t";
+  std::cout << "\"___/\n";
+  std::cout << " \\=/\n";
+  std::cout << "  \\_\n";
   return 0;
 }
