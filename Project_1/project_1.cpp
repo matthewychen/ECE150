@@ -136,21 +136,21 @@ int main() {
     
     //replacing if lower than final
     if(F100>Project1100){
-        M100=F100;
+        Project1100=F100;
     }
     if(F100>Project2100){
-        M100=F100;
+        Project2100=F100;
     }
     if(F100>Project3100){
-        M100=F100;
+        Project3100=F100;
     }
     if(F100>Project4100){
-        M100=F100;
+        Project4100=F100;
     }
     if(F100>Project5100){
-        M100=F100;
+        Project5100=F100;
     }
-    int Project100{};
+    double Project100{};
     Project100 = 100 * (Project1100 + Project2100 + Project3100 + Project4100 + Project5100) / 5;
 
     double Final{};
@@ -159,10 +159,9 @@ int main() {
     } else if (E100 >= 60) {
         Final = ((2 * E100) / 3) + (Project100 / 3);
     } else if (E100 > 40 && E100 < 60) {
-        Final = (Project100 / 3) * ((E100 - 40) / 20) + E100 * (1 - (E100 - 40) / 20 / 3);
+        Final = (Project100 / 3) * ((E100 - 40) ) + E100 * (1 - (E100 - 40) / 20 / 3);
     }
-
     Final = std::round(Final + 1e-12);
-    std::cout << "Final Grade: " << Final;
+    std::cout << "Final Grade: " << Final<<" "<<E100<<" "<<Project100;
     return 0;
 }
