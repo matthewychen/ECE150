@@ -9,7 +9,7 @@ int main() {
 
     std::cout << "What is the max score on the exam? ";
     std::cin >> Fmax;
-    while(Fmax <= 0) {
+    while(Fmax <= 0 || Fmax!=std::round(Fmax)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Fmax;
     }
@@ -151,15 +151,15 @@ int main() {
         Project5100=F100;
     }
     double Project100{};
-    Project100 = 100 * (Project1100 + Project2100 + Project3100 + Project4100 + Project5100) / 5;
+    Project100 = 100 * (Project1100 + Project2100 + Project3100 + Project4100 + Project5100) / 5.0;
 
     double Final{};
     if (E100 <= 40) {
         Final = E100;
     } else if (E100 >= 60) {
-        Final = ((2 * E100) / 3) + (Project100 / 3);
+        Final = ((2.0 * E100) / 3.0) + (Project100 / 3.0);
     } else if (E100 > 40 && E100 < 60) {
-        Final = (Project100 / 3) * ((E100 - 40) ) + E100 * (1 - (E100 - 40) / 20 / 3);
+        Final = (Project100 / 3.0) * ((E100 - 40) ) + E100 * (1 - (E100 - 40) / 20.0 / 3.0);
     }
     Final = std::round(Final + 1e-12);
     std::cout << "Final Grade: " << Final<<" "<<E100<<" "<<Project100;
