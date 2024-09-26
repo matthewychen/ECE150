@@ -2,9 +2,9 @@
 #include <cmath>
 
 int main() {
-    int Fmax{};
+    double Fmax{};
     double Fscore{};
-    int Mmax{};
+    double Mmax{};
     double Mscore{};
 
     std::cout << "What is the max score on the exam? ";
@@ -26,7 +26,7 @@ int main() {
 
     std::cout << "What is the max score on the midterm? ";
     std::cin >> Mmax;
-    while(Mmax <= 0) {
+    while(Mmax <= 0 || Mmax!=std::round(Mmax)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Mmax;
     }
@@ -46,12 +46,12 @@ int main() {
     double E100 = 100 * ((0.75) * F100 + (0.25) * M100);
 
     //projects
-    int Proj1max{}, Proj2max{}, Proj3max{}, Proj4max{}, Proj5max{};
+    double Proj1max{}, Proj2max{}, Proj3max{}, Proj4max{}, Proj5max{};
     double Proj1score{}, Proj2score{}, Proj3score{}, Proj4score{}, Proj5score{};
 
     std::cout << "What is the max score of project 1? ";
     std::cin >> Proj1max;
-    while(Proj1max <= 0) {
+    while(Proj1max <= 0 || Proj1max!=std::round(Proj1max)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Proj1max;
     }
@@ -68,7 +68,7 @@ int main() {
 
     std::cout << "What is the max score of project 2? ";
     std::cin >> Proj2max;
-    while(Proj2max <= 0) {
+    while(Proj2max <= 0|| Proj2max!=std::round(Proj2max)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Proj2max;
     }
@@ -85,7 +85,7 @@ int main() {
 
     std::cout << "What is the max score of project 3? ";
     std::cin >> Proj3max;
-    while(Proj3max <= 0) {
+    while(Proj3max <= 0|| Proj3max!=std::round(Proj3max)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Proj3max;
     }
@@ -102,7 +102,7 @@ int main() {
 
     std::cout << "What is the max score of project 4? ";
     std::cin >> Proj4max;
-    while(Proj4max <= 0) {
+    while(Proj4max <= 0|| Proj4max!=std::round(Proj4max)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Proj4max;
     }
@@ -119,7 +119,7 @@ int main() {
 
     std::cout << "What is the max score of project 5? ";
     std::cin >> Proj5max;
-    while(Proj5max <= 0) {
+    while(Proj5max <= 0|| Proj5max!=std::round(Proj5max)) {
         std::cout << "Number rejected, must be a positive integer. Please try again: ";
         std::cin >> Proj5max;
     }
@@ -159,9 +159,9 @@ int main() {
     } else if (E100 >= 60) {
         Final = ((2.0 * E100) / 3.0) + (Project100 / 3.0);
     } else if (E100 > 40 && E100 < 60) {
-        Final = (Project100 / 3.0) * ((E100 - 40) ) + E100 * (1 - (E100 - 40) / 20.0 / 3.0);
+        Final = (Project100 / 3.0) * ((E100 - 40) /20.0) + E100 * (1 - (E100 - 40) / 20.0 / 3.0);
     }
     Final = std::round(Final + 1e-12);
-    std::cout << "Final Grade: " << Final<<" "<<E100<<" "<<Project100;
+    std::cout << "Final Grade: " << Final;
     return 0;
 }
