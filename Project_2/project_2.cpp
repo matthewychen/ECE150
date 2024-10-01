@@ -7,27 +7,38 @@ unsigned int n{};
 void pattern( unsigned int n ){
     unsigned int asterisks{2*n+1};
     unsigned int spaces{0};
-        for(unsigned int line = 0;line<=(2*n+1);(++line)){
-            unsigned int temp=spaces;
-            for(;spaces>0;spaces--){
+    bool hitmid{false};
+        for(int line = 0;line>=0 && line<=n;){
+            //printing out
+            for(unsigned int i = 0; i<spaces ;i++){
                 std::cout<<' ';
             }
-            spaces=temp;
-            for(;asterisks>0;){
+            for(unsigned int j=0 ; j<asterisks ; j++){
                 std::cout<<'*';
-                asterisks--;
-                asterisks--;
             }
-            for(;spaces>0;spaces--){
+            for(unsigned int i=0 ; i<spaces ; i++){
                 std::cout<<' ';
             }
-            spaces=temp;
-            if(linenum>n){
-                std::cout<<"you have reached end of forward loop";
-            spaces++;
+            std::cout<<'\n';
+
+            //increment upwards if not yet at middle
+            if(hitmid==false){
+                spaces++;
+                asterisks-=2;
+                line++;
             }
+            //increment downwards if past middle
+            if (hitmid==true){
+                spaces--;
+                asterisks+=2;
+                line--;
+            }
+            //at line n decide that the middle has been hit
+            if (line==n){
+                hitmid=true;
+            }
+        }
     }
-}
 
 unsigned int log10(unsigned int n){ 
     if(n==0){
@@ -53,6 +64,6 @@ unsigned int swap_bytes( unsigned int n, unsigned int b0, unsigned int b1 ){
 }
 
 int main(){
-    pattern(10);
+    pattern(80);
     return 0;
 }
